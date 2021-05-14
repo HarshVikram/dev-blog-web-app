@@ -5,7 +5,8 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
-  GET_REPOS
+  GET_REPOS,
+  NO_REPOS 
 } from './types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -67,7 +68,7 @@ export const getGithubRepos = (username) => async dispatch => {
     });
   } catch(err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: NO_REPOS,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
